@@ -1,0 +1,31 @@
+
+name: San Francisco BART
+
+
+feeds:
+
+  GTFS-Static:
+    http:
+      url: 'https://www.bart.gov/dev/schedules/google_transit.zip'
+    parser:
+      built_in: GTFS_STATIC
+    required_for_install: true
+    auto_update:
+      enabled: false
+
+  GTFS-Realtime-Trips:
+    http:
+      url: 'http://api.bart.gov/gtfsrt/tripupdate.aspx'
+    parser:
+      built_in: GTFS_REALTIME
+    auto_update:
+      period: 5 seconds
+
+  GTFS-Realtime-Alerts:
+    http:
+      url: 'http://api.bart.gov/gtfsrt/alerts.aspx'
+    parser:
+      built_in: GTFS_REALTIME
+    auto_update:
+      period: 5 seconds
+
